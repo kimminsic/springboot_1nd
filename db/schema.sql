@@ -31,3 +31,12 @@ updateDate = NOW(),
 title = '제목 3',
 `body` = '내용 3';
 
+s
+
+UPDATE article
+SET updateDate = NOW(),
+title = '나',
+`body` = '너'
+WHERE id = 1;
+
+SELECT LAST_INSERT_ID();

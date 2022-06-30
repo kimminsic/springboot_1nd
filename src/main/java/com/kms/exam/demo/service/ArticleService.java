@@ -17,6 +17,10 @@ public class ArticleService {
 	public ArticleService(ArticleRepository articleRepository) {
 		this.articleRepository = articleRepository;
 	}
+	
+	public void modifyArticle(int id, String title, String body) {
+		articleRepository.modifyArticle(id, title, body);
+	}
 
 	public int writeArticle(String title, String body) {
 		// TODO Auto-generated method stub
@@ -37,12 +41,5 @@ public class ArticleService {
 	public void deleteArticle(int id) {
 		// TODO Auto-generated method stub
 		articleRepository.deleteArticle(id);
-	}
-
-	public void modifyArticle(int id, String title, String body) {
-		// TODO Auto-generated method stub
-		Article article = getArticle(id);
-		article.setTitle(title);
-		article.setBody(body);
 	}
 }
