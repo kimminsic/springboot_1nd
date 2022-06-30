@@ -3,10 +3,11 @@
 
 <mapper
 	namespace="com.kms.exam.demo.repository.ArticleRepository">
-	 <insert id="writeArticle">
+	<insert id="writeArticle">
 		INSERT INTO article
 		SET regDate = NOW(),
-		updateDate = NOW(),
+		updateDate =
+		NOW(),
 		title = #{title},
 		`body` = #{body}
 	</insert>
@@ -37,10 +38,12 @@
 
 	<update id="modifyArticle">
 		UPDATE article
-		SET title = #{title},
-		`body` = #{body},
-		updateDate = NOW()
+		<set>
+			<if test="title != null and title != ''">title = #{title},</if>
+			<if test="body != null and body != ''">`body` = #{body},</if>
+			updateDate = NOW()
+		</set>
 		WHERE id = #{id}
 	</update>
-	 
+
 </mapper> 
