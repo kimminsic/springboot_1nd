@@ -18,9 +18,10 @@ public class ArticleService {
 		this.articleRepository = articleRepository;
 	}
 
-	public Article writeArticle(String title, String body) {
+	public int writeArticle(String title, String body) {
 		// TODO Auto-generated method stub
-		return articleRepository.writeArticle(title, body);
+		articleRepository.writeArticle(title, body);
+		return articleRepository.getLastInsertId(); 
 	}
 
 	public List<Article> getArticles() {
