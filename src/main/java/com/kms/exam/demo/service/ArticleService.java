@@ -24,7 +24,7 @@ public class ArticleService {
 		articleRepository.modifyArticle(id, title, body);
 	}
 
-	public ResultData writeArticle(String title, String body) {
+	public ResultData<Integer> writeArticle(String title, String body) {
 		// TODO Auto-generated method stub
 		articleRepository.writeArticle(title, body);
 		int id = articleRepository.getLastInsertId();
