@@ -33,11 +33,6 @@ title = '제목 3',
 
 SELECT * FROM article;
 
-UPDATE article
-SET updateDate = NOW(),
-title = '나',
-`body` = '너'
-WHERE id = 1;
 
 SELECT LAST_INSERT_ID();
 DROP TABLE IF EXISTS `member`;
@@ -91,3 +86,12 @@ cellphoneNo ='010-1010-1010',
 email  ='bbb@test';
 
 SELECT * FROM `member`;
+SELECT * FROM article;
+
+# 게시물 테이블에 회원정보 추가
+ALTER TABLE article ADD COLUMN memberId INT(10) UNSIGNED NOT NULL AFTER updateDate;
+
+# 기존 게시물 작성자를 2번호로 지정
+UPDATE article
+SET memberId=2
+WHERE memberId=0;
