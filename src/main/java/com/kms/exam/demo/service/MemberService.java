@@ -13,7 +13,7 @@ public class MemberService {
 	@Autowired
 	private MemberRepository memberRepository;
 
-	public ResultData join(String loginId, String loginPw, String name, String nickname, String cellphoneNo, String email) {
+	public ResultData<Integer> join(String loginId, String loginPw, String name, String nickname, String cellphoneNo, String email) {
 		// 아이디 중복 체크
 		Member oldMember = getMemberByLoginId(loginId);
 
@@ -37,7 +37,7 @@ public class MemberService {
 		return memberRepository.getMemberByNameAndEmail(name, email);
 	}
 
-	private Member getMemberByLoginId(String loginId) {
+	public Member getMemberByLoginId(String loginId) {
 		// TODO Auto-generated method stub
 		return memberRepository.getMemberByLoginId(loginId);
 	}
